@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+KB="by-tech-gaming-keyboard"
+LAYOUT=$(hyprctl devices -j | jq -r --arg kb "$KB" '
+  .keyboards[] | select(.name == $kb) | .active_keymap
+')
+
+CAPS=$(cat /sys/class/leds/input6::capslock/brightness 2>/dev/null || echo 0)
+
+case "$LAYOUT" in
+  *Greek*) LABEL="GR" ;;
+  *)       LABEL="EN" ;;
+esac
+
+if [ "$CAPS" = "1" ]; then
+  echo "{\"text\": \"$LABEL 󰘲\", \"class\": \"caps-on\", \"tooltip\": \"Caps Lock ON\"}"
+else
+  echo "{\"text\": \"$LABEL\", \"class\": \"caps-off\", \"tooltip\": \"Caps Lock off\"}"
+fi

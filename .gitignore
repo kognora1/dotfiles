@@ -1,0 +1,10 @@
+local/share/fonts/
+local/share/themes/
+local/share/icons/
+home/.icons/
+config/background
+config/session/
+config/systemd/
+config/zsh/.zcompdump
+config/librewolf/
+.mozilla/

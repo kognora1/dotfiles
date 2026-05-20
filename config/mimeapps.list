@@ -1,0 +1,26 @@
+[Default Applications]
+application/epub+zip=org.pwmt.zathura.desktop
+application/json=nvim.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+application/x-postscript=org.pwmt.zathura.desktop
+audio/flac=deadbeef.desktop
+audio/mpeg=deadbeef.desktop
+audio/ogg=deadbeef.desktop
+audio/opus=deadbeef.desktop
+audio/x-wav=deadbeef.desktop
+image/bmp=swayimg.desktop
+image/gif=swayimg.desktop
+image/heic=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/png=swayimg.desktop
+image/tiff=swayimg.desktop
+image/webp=swayimg.desktop
+inode/directory=pcmanfm.desktop
+text/markdown=nvim.desktop
+text/plain=nvim.desktop
+text/x-python=nvim.desktop
+text/x-shellscript=nvim.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/terminal=foot.desktop
+text/html=org.mozilla.firefox.desktop

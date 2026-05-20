@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	rsync="rsync -vrPlu" \
+	mkdir="mkdir -pv" \
+	ytt="yt --skip-download --write-thumbnail" \
+	ffmpeg="ffmpeg -hide_banner" \
+	ls="eza -al --icons" \
+	ll="eza -al --icons" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	ip="ip -color=auto" \
+	remove="sudo dnf remove" \
+	autoremove="sudo dnf autoremove" \
+	install="sudo dnf install" \
+	update="sudo dnf update" \
+	ka="killall" \
+	g="git" \
+	YT="youtube-viewer" \
+	sdn="shutdown -h now" \
+	e="nvim" \
+	v="nvim" \
+	z="zathura" \
+	ytdl="yt-dlp -f bestvideo+bestaudio -o '%(title)s.%(ext)s' --external-downloader=aria2c" \
+	ytadl="yt-dlp -x -f bestaudio -o '%(title)s.%(ext)s' --external-downloader=aria2c"

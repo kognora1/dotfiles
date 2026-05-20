@@ -1,0 +1,34 @@
+[main]
+font=JetBrains Mono Nerd Font:size=13
+prompt="> "
+lines=15
+width=50
+horizontal-pad=20
+vertical-pad=10
+inner-pad=10
+
+[colors]
+background=eff1f5dd
+text=4c4f69ff
+prompt=5c5f77ff
+placeholder=8c8fa1ff
+input=4c4f69ff
+match=8839efff
+selection=acb0beff
+selection-text=4c4f69ff
+selection-match=8839efff
+counter=8c8fa1ff
+border=8839efff
+
+[border]
+width=2
+radius=8
+
+[dmenu]
+mode=text
+
+[main]
+icon-theme=Papirus-Dark
+# Or just "Papirus" if you prefer the light/standard version
+lines=10
+width=32

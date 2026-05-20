@@ -1,0 +1,18 @@
+layer=overlay
+border-radius=15
+max-visible=1
+background-color=#eff1f5
+text-color=#4c4f69
+border-color=#8839ef
+progress-color=over #ccd0da
+icons=1
+max-icon-size=64
+default-timeout=3000
+ignore-timeout=0
+outer-margin=15
+margin=10
+width=240
+font=JetBrainsMono NerdFont  12
+
+[urgency=high]
+border-color=#fe640b

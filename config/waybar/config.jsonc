@@ -1,0 +1,131 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 30,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+	"custom/media"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "custom/kernel",
+        "disk#ssd",
+	"custom/temps",
+        "cpu",
+        "memory",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "custom/kb",
+	"clock",
+        "tray"
+    ],
+
+   "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}"
+},
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+
+    "clock": {
+        "interval": 1,
+        "timezone": "Europe/Athens",
+        "format": "\uf073 {:%a %d %b %H:%M}",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "\uf4bc {usage}%",
+        "on-click": "foot --app-id htop htop"
+    },
+
+    "memory": {
+        "interval": 3,
+        "format": "\uf538 {}%",
+        "on-click": "foot --app-id htop htop",
+        "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "states": {
+            "critical": 80
+        }
+    },
+
+    "custom/temps": {
+    "interval": 3,
+    "exec": "printf '\uf2c9 %s°C' $(awk '{print int($1/1000)}' /sys/class/hwmon/hwmon1/temp1_input)",
+    "format": "{}",
+    "tooltip": false
+},
+
+    "disk#ssd": {
+        "interval": 60,
+        "format": "\uf0a0 {free}",
+        "path": "/",
+        "tooltip-format": "{used} used out of {total} ({percentage_used}%)",
+        "warning": 80,
+        "critical": 90
+    },
+
+    "network": {
+        "interval": 30,
+        "format-ethernet": "\uef44 Ethernet",
+        "format-wifi": "\uf1eb {essid} {signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "\uf6ff (No IP)",
+        "format-disconnected": "\uf127 Disconnected"
+    },
+
+    "custom/kernel": {
+        "interval": 3600,
+        "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
+        "format": "\uf17c {}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} {format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-source-muted": "\uf131",
+        "format-muted": "\uf6a9 muted",
+        "format-icons": {
+            "headphone": "\uf025",
+            "headset": "\uf025",
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click": "pavucontrol --tab=3"
+    },
+
+    "bluetooth": {
+    "format-off": "\uf294 off",
+    "format-connected": "\uf294 {num_connections} connected",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "~/.local/bin/bluetooth-manager.sh"
+},
+    "custom/kb": {
+        "interval": 1,
+        "exec": "/home/nora/.local/bin/kb-status",
+        "return-type": "json",
+        "format": "\uf11c {}"
+},
+
+"custom/media": {
+    "interval": 2,
+    "exec": "playerctl metadata --format '{{emoji(status)}} {{artist}} - {{title}}' 2>/dev/null || echo ''",
+    "format": "\uf001 {}",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip": false
+}
+
+}
